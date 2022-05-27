@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="Theme.Bookme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/gray_light</item>
+        <item name="colorPrimaryVariant">@color/gray_light</item>
+        <item name="colorOnPrimary">@color/text_default</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/gray_light</item>
+        <item name="colorSecondaryVariant">@color/gray_light</item>
+        <item name="colorOnSecondary">@color/text_default</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/gradient_start_main_color</item>
+
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">false</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/details_image_transition</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TabText" parent="TextAppearance.AppCompat.Subhead">
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+</resources>

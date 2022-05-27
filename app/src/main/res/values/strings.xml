@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Bookme</string>
+
+    <string name="library">Library</string>
+    <string name="store">Store</string>
+    <string name="profile">Profile</string>
+
+    <string name="title_font_name">SignPainter.ttc</string>
+    <string name="string_price">%s₴</string>
+    <string name="string_purchase">Купить за %s₴</string>
+    <string name="fragment">Фрагмент</string>
+    <string name="book_later">Отложить</string>
+    <string name="string_ar_3d">Посмотреть в 3D</string>
+    <string name="html_year"><![CDATA[Год: <b>%s</b>]]></string>
+    <string name="html_pages"><![CDATA[Страниц: <b>%s</b>]]></string>
+    <string name="description_title">Описание</string>
+    <string name="lorem_ipsum">Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</string>
+    <string name="reviews">Отзывы</string>
+    <string name="set_review">Оставить отзыв</string>
+    <string name="more_reviews">Еще отзывы...</string>
+    <string name="all">Все</string>
+    <string name="text_favorites">Отложено</string>
+    <string name="text_purchased">Куплено</string>
+    <string name="text_reviews">Отзывов</string>
+
+    <string-array name="month_names">
+        <item>января</item>
+        <item>февраля</item>
+        <item>марта</item>
+        <item>апреля</item>
+        <item>мая</item>
+        <item>июня</item>
+        <item>июля</item>
+        <item>августа</item>
+        <item>сентября</item>
+        <item>октября</item>
+        <item>ноября</item>
+        <item>декабря</item>
+    </string-array>
+</resources>

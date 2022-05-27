@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@id/default_toolbar_scene_end"
+        motion:constraintSetStart="@id/default_toolbar_scene_start">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="75"
+                motion:motionTarget="@id/details_motion_favorite" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/details_motion_share" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="10"
+                motion:motionTarget="@id/details_motion_title" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="75"
+                motion:motionTarget="@id/details_motion_title" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/default_toolbar_scene_start">
+        <Constraint
+            android:id="@+id/details_motion_back"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_share"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_title"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_back"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_back"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_favorite"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            android:alpha="0"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/default_toolbar_scene_end">
+
+        <Constraint
+            android:id="@+id/details_motion_share"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize" />
+        <Constraint
+            android:id="@+id/details_motion_back"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_title"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_back"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_back"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/details_motion_favorite"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            android:alpha="1" />
+    </ConstraintSet>
+
+
+
+</MotionScene>

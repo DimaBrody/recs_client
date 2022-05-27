@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="review"
+            type="com.test.books.data.model.book.BookUserReview" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_review_user_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/item_review_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_avatar_placeholder"
+                app:imageUrl="@{review.avatar}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/item_review_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".5" />
+
+            <TextView
+                android:id="@+id/item_review_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{review.username}"
+                android:textColor="@color/text_default"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/item_review_guideline"
+                app:layout_constraintStart_toEndOf="@id/item_review_image"
+                tools:text="Brody" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/text_default"
+                android:textSize="10sp"
+                app:dateText="@{review.date}"
+                app:layout_constraintStart_toStartOf="@id/item_review_username"
+                app:layout_constraintTop_toBottomOf="@id/item_review_guideline"
+                tools:text="8 ноября 2020, 23:35" />
+
+            <com.test.books.ui.views.reviews.StarsView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rating="@{review.rating}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.test.books.ui.views.textview.ExpandableTextView
+            android:id="@+id/item_review_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:fullText="@string/lorem_ipsum"
+            app:layout_constraintTop_toBottomOf="@id/item_review_user_container" />
+
+        <LinearLayout
+            android:id="@+id/item_review_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_review_text">
+
+            <ImageView
+                android:id="@+id/item_review_like_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_up"
+                app:tint="@color/like_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="1dp"
+                android:fontFamily="sans-serif"
+                android:text="@{review.likes.toString()}"
+                android:textColor="@color/like_text_color"
+                android:textSize="12sp"
+                tools:text="32" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_review_dislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/item_review_like"
+            app:layout_constraintStart_toEndOf="@id/item_review_like"
+            app:layout_constraintTop_toTopOf="@id/item_review_like">
+
+            <ImageView
+                android:id="@+id/item_review_dislike_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_down"
+                app:tint="@color/like_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="1dp"
+                android:fontFamily="sans-serif"
+                android:text="@{review.dislikes.toString()}"
+                android:textColor="@color/like_text_color"
+                android:textSize="12sp"
+                tools:text="5" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

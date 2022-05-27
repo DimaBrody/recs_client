@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.test.books.data.model.book.User" />
+
+        <variable
+            name="adapter"
+            type="com.test.books.ui.profile.ProfileAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_container"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@{user.name}"
+            android:textColor="@color/text_default"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/profile_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_back"
+            tools:text="Brody" />
+
+        <ImageView
+            android:id="@+id/profile_back"
+            android:layout_width="@dimen/actionBarSize"
+            android:layout_height="@dimen/actionBarSize"
+            android:contentDescription="@null"
+            android:padding="16dp"
+            android:src="@drawable/ic_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_default_light" />
+
+        <ImageView
+            android:id="@+id/profile_avatar"
+            android:layout_width="@dimen/profile_avatar"
+            android:layout_height="@dimen/profile_avatar"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_avatar_placeholder"
+            app:imageUrl="@{user.avatarUrl}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_back" />
+
+        <TextView
+            android:id="@+id/profile_text_quote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@{user.favoriteQuote}"
+            android:textColor="@color/text_default"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_avatar"
+            tools:text="Любимая цитата…" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/profile_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            app:constraint_referenced_ids="profile_container_favorites, profile_container_reviews, profile_container_purchases"
+            app:flow_horizontalAlign="start"
+            app:flow_horizontalBias="0"
+            app:flow_maxElementsWrap="3"
+            app:flow_verticalBias="0"
+            app:flow_wrapMode="chain"
+            app:layout_constraintTop_toBottomOf="@id/profile_text_quote" />
+
+        <LinearLayout
+            android:id="@+id/profile_container_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/ProfileIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_favorite" />
+
+                <TextView
+                    style="@style/ProfileDataText"
+                    android:text="@{String.valueOf(user.favorites)}"
+                    tools:text="20" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileDescText"
+                android:text="@string/text_favorites" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/profile_container_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/ProfileIcon"
+                    android:contentDescription="@null"
+                    android:layout_width="14dp"
+                    app:tint="#454545"
+                    android:layout_marginTop="1dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/quill" />
+
+                <TextView
+                    style="@style/ProfileDataText"
+                    android:text="@{String.valueOf(user.reviews)}"
+                    tools:text="14" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileDescText"
+                android:text="@string/text_reviews" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profile_container_purchases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/ProfileIcon"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_shopping_basket" />
+
+                <TextView
+                    style="@style/ProfileDataText"
+                    android:text="@{String.valueOf(user.purchases)}"
+                    tools:text="3" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileDescText"
+                android:text="@string/text_purchased" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_flow"
+            android:layout_marginTop="36dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:isHorizontal="@{false}"
+            app:adapter="@{adapter}"
+            app:isAutoMeasurement="@{true}"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

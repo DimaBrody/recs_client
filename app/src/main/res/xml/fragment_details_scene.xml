@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@id/default_scene_start"
+        motion:constraintSetEnd="@id/default_scene_end">
+
+        <KeyFrameSet>
+
+            <KeyAttribute
+                motion:framePosition="10"
+                motion:motionTarget="@id/details_motion_review_container"
+                android:alpha="0"
+                />
+
+            <KeyAttribute
+                motion:framePosition="10"
+                motion:motionTarget="@id/details_motion_author_container"
+                android:alpha="0"
+                />
+
+            <KeyAttribute
+                motion:framePosition="10"
+                motion:motionTarget="@id/details_motion_fragment_container"
+                android:alpha="0"
+                />
+
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@id/details_motion_book"
+                android:alpha="1"
+                />
+
+            <KeyAttribute
+                motion:framePosition="60"
+                motion:motionTarget="@id/details_motion_book"
+                android:alpha="0"
+                />
+
+        </KeyFrameSet>
+
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/default_scene_start">
+        <Constraint
+            android:id="@+id/details_motion_book"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="56dp" />
+        <Constraint
+            android:id="@+id/details_motion_author_container"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="4dp"
+            motion:layout_constraintTop_toBottomOf="@id/details_motion_book"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_review_container"
+            motion:layout_constraintEnd_toStartOf="@id/details_motion_book"
+            android:layout_width="56dp"
+            android:layout_height="34dp"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_book"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_book"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_fragment_container"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/details_motion_book"
+            android:layout_width="56dp"
+            android:layout_height="34dp"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_book"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_book" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/default_scene_end">
+
+        <Constraint
+            android:id="@+id/details_motion_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:rotationX="90"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+
+            motion:layout_constraintBottom_toBottomOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_author_container"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:alpha="0"
+            android:layout_marginBottom="4dp"
+            motion:layout_constraintTop_toBottomOf="@id/details_motion_book"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_review_container"
+            motion:layout_constraintEnd_toStartOf="@id/details_motion_book"
+            android:layout_width="56dp"
+            android:layout_height="34dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_book"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_book"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/details_motion_fragment_container"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/details_motion_book"
+            android:layout_width="56dp"
+            android:alpha="0"
+            android:layout_height="34dp"
+            motion:layout_constraintBottom_toBottomOf="@id/details_motion_book"
+            motion:layout_constraintTop_toTopOf="@id/details_motion_book" />
+    </ConstraintSet>
+
+</MotionScene>

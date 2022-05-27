@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="book"
+            type="com.test.books.data.model.book.Book" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_width="150dp"
+            android:id="@+id/item_book_container"
+            android:layout_height="wrap_content">
+
+
+            <com.skydoves.transformationlayout.TransformationLayout
+                android:layout_width="match_parent"
+                android:id="@+id/item_book_transformation"
+                app:transformation_duration="500"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="3dp"
+
+                    app:cardUseCompatPadding="true"
+                    android:id="@+id/item_book_card"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/item_book_cover"
+                        android:transitionName="@{book.id}"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/adventure_books_large"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.card.MaterialCardView>
+
+            </com.skydoves.transformationlayout.TransformationLayout>
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/item_book_transformation"
+                app:layout_constraintStart_toStartOf="@id/item_book_transformation"
+                android:layout_marginStart="4dp"
+                android:text="@{book.name}"
+                android:id="@+id/item_book_name"
+                tools:text="Война и Мир"
+                android:layout_width="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textSize="15sp"
+                android:textColor="#333"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/item_book_name"
+                app:layout_constraintTop_toBottomOf="@id/item_book_name"
+                android:text="@{book.author}"
+                tools:text="Лев Толстой"
+                android:fontFamily="sans-serif-light"
+                android:id="@+id/item_book_author"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:textColor="@color/text_default"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/item_book_author"
+                app:layout_constraintStart_toStartOf="@id/item_book_author"
+                android:text="@{book.rating.toString()}"
+                android:textSize="14sp"
+                android:textColor="#333"
+                android:fontFamily="sans-serif-light"
+                tools:text="4.9"
+                android:id="@+id/item_book_rating"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="13dp"
+                app:layout_constraintStart_toEndOf="@id/item_book_rating"
+                app:layout_constraintTop_toTopOf="@id/item_book_rating"
+                app:layout_constraintBottom_toBottomOf="@id/item_book_rating"
+
+                app:tint="#606368"
+                android:contentDescription="@null"
+                android:id="@+id/item_book_star"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_star"
+                android:layout_height="13dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/item_book_star"
+                app:layout_constraintTop_toTopOf="@id/item_book_rating"
+                app:layout_constraintBottom_toBottomOf="@id/item_book_rating"
+                android:text="@{@string/string_price(book.price)}"
+                tools:text="75₴"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/text_default"
+                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

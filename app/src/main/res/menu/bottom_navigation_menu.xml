@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottom_menu_library"
+        android:title="@string/library"
+        android:icon="@drawable/ic_library"/>
+    <item android:id="@+id/bottom_menu_store"
+        android:title="@string/store"
+        android:icon="@drawable/ic_store"/>
+    <item android:id="@+id/bottom_menu_profile"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
+</menu>

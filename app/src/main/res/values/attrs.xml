@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OverlayImageView">
+        <attr name="overlayColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CrossfadeImageView">
+        <attr name="altDrawable" format="color" />
+        <attr name="crossfade" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="fullText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ReviewVolumeView">
+        <attr name="volumeScore" format="string" />
+    </declare-styleable>
+</resources>

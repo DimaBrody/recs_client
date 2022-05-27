@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_default">#333333</color>
+    <color name="gray_light">#cccccc</color>
+    <color name="gray_default_light">#555555</color>
+    <color name="gray_very_light">#ACACAC</color>
+    <color name="gray_white">#B9B9B9</color>
+    <color name="gray_dark">#111111</color>
+    <color name="gray_chip_background">#dfdfdf</color>
+
+
+    <color name="gradient_start_main_color">#EB3349</color>
+    <color name="gradient_end_main_color">#F45C43</color>
+    <color name="gradient_start_ar_color">#2F80ED</color>
+    <color name="gradient_end_ar_color">#8F94FB</color>
+
+    <color name="text_white">@color/white</color>
+    <color name="text_default">@color/gray_default</color>
+    <color name="text_light">#5A5A5A</color>
+    <color name="text_blue">@color/gradient_start_ar_color</color>
+
+    <color name="border_gray">@color/gray_light</color>
+    <color name="border_light_gray">@color/gray_white</color>
+    <color name="border_avatar_gray">#C5C5C5</color>
+
+    <color name="like_text_color">#878787</color>
+    <color name="like_color">@color/gray_very_light</color>
+
+    <color name="blurry_overlay_color">@color/gray_dark</color>
+    <color name="black_transparent_50">#CC000000</color>
+
+    <color name="profile_discounts">#FB661C</color>
+    <color name="profile_notifications">#D7B93C</color>
+    <color name="profile_privacy">#1E0B69</color>
+    <color name="profile_exit">#FD5151</color>
+
+    <color name="transparent">#00000000</color>
+</resources>

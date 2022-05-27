@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="book"
+            type="com.test.books.data.model.book.Book" />
+
+        <variable
+            name="blurryHelper"
+            type="com.test.books.utils.helpers.BlurryHelper" />
+
+
+        <variable
+            name="blurryListener"
+            type="com.test.books.ui.details.DetailsBlurryListener" />
+    </data>
+
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/item_stripe_transformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="500">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_stripe_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/itemDiscoverStripeHeight"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_default">
+
+                <com.test.books.ui.views.images.CrossfadeImageView
+                    android:id="@+id/item_stripe_image_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@color/gray_default"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/adventure_books_large"
+                    app:blurryHelper="@{blurryHelper}"
+                    app:blurryImageUrl="@{book.coverUrl}"
+                    app:blurryListener="@{blurryListener}"
+                    app:crossfade="0" />
+
+                <View
+                    android:id="@+id/item_stripe_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/blurry_overlay_color" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/item_stripe_image_book_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/item_stripe_image_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/adventure_books_large"
+                        android:transitionName="@{book.id}" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <ImageView
+                    android:id="@+id/item_stripe_image_star"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="14dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintStart_toEndOf="@id/item_stripe_image_book_container"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_stripe_text_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginBottom="0.5dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@{book.rating.toString()}"
+                    android:textColor="@color/text_white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/item_stripe_image_star"
+                    app:layout_constraintStart_toEndOf="@id/item_stripe_image_star"
+                    app:layout_constraintTop_toTopOf="@id/item_stripe_image_star"
+                    tools:text="4.9" />
+
+                <TextView
+                    android:id="@+id/item_stripe_text_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@{book.name}"
+                    android:textColor="@color/text_white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/item_stripe_image_star"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/item_stripe_image_star"
+                    tools:text="Война и Мир" />
+
+                <TextView
+                    android:id="@+id/item_stripe_text_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@{book.author}"
+                    android:textColor="@color/text_white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@id/item_stripe_text_name"
+                    app:layout_constraintTop_toBottomOf="@id/item_stripe_text_name"
+                    tools:text="Лев Толстой" />
+
+                <TextView
+                    android:id="@+id/item_stripe_text_quote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@{book.quote}"
+                    android:textColor="@color/text_white"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/item_stripe_image_book_container"
+                    tools:text="«Интересная цитата с книги»" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="11dp"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintBottom_toBottomOf="@id/item_stripe_text_quote"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/item_stripe_text_quote"
+                    app:tint="@color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.skydoves.transformationlayout.TransformationLayout>
+</layout>

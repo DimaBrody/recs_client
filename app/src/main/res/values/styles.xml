@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ChipTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/text_default</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:background">@drawable/background_chip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="DescriptionTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_default</item>
+    </style>
+
+    <style name="RatingTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/text_default</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="ReviewChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipIconEnabled">true</item>
+        <item name="chipIconSize">16dp</item>
+        <item name="chipStrokeColor">@color/gray_chip_background</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipIcon">@drawable/ic_star</item>
+        <item name="chipIconTint">@color/gray_default_light</item>
+        <item name="chipStartPadding">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:checkable">true</item>
+        <item name="checkedIcon">@null</item>
+        <item name="rippleColor">@color/mtrl_choice_chip_ripple_color</item>
+        <item name="chipBackgroundColor">@color/review_chip_selector</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="ScaleDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_out</item>
+    </style>
+
+    <style name="FadeDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fade_out</item>
+    </style>
+
+    <style name="ProfileIcon">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="tint">@color/gray_default_light</item>
+        <item name="android:src">@drawable/ic_favorite</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="ProfileDataText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_default</item>
+    </style>
+
+    <style name="ProfileDescText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_default</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+</resources>
