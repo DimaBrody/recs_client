@@ -4,13 +4,12 @@ import com.test.books.App
 import com.test.books.utils.coroutines.gradualIoThread
 import com.test.books.utils.coroutines.ioThread
 import com.test.books.utils.exceptions.NoDataException
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flowOn
 
 sealed class ResultOf<out T> {
     data class Success<out T>(val data: T) : ResultOf<T>()
@@ -23,7 +22,7 @@ sealed class ResultOf<out T> {
         }
 
     companion object {
-        inline fun <T> createFlow(
+        inline fun <T> createFlowDefault(
             crossinline onDebug: () -> T,
             crossinline onLoaded: CoroutineScope.() -> T,
             crossinline onDatabase: CoroutineScope.() -> T
@@ -36,6 +35,14 @@ sealed class ResultOf<out T> {
                 emit(Success(if (App.debug) onDebug() else onLoaded()))
             }
         }
+
+        inline fun <T> createFlow(
+            crossinline onLoaded: suspend () -> T
+        ): Flow<ResultOf<T>> = flow<ResultOf<T>> {
+            emit(Success(onLoaded()))
+        }.catch {
+            emit(Failure(it))
+        }.flowOn(Dispatchers.IO)
     }
 
     suspend inline fun onSuccess(crossinline callback: suspend (T) -> Unit): ResultOf<T> =

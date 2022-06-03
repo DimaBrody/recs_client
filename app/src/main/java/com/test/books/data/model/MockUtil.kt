@@ -19,11 +19,11 @@ object MockUtil {
             items.add(
                 Book(
                     "book$i${random(100000)}",
-                    "Война и Мир",
-                    "Лев Толстой",
+                    "War and peace",
+                    "Lev Tolstoy",
                     78.5,
                     5.0,
-                    "«Интересная цитата с книги»",
+                    "«Short description»",
                     MOCK_COVER,
                     BookDetails("2020", "321")
                 )
@@ -45,8 +45,8 @@ object MockUtil {
 
     fun createDiscoverItems(): MutableList<DiscoverItemHolder> {
         return mutableListOf(
-            DiscoverItemHolder(STRIPE, 3),
-            DiscoverItemHolder(BOOKS, 10)
+//            DiscoverItemHolder(STRIPE, 3),
+//            DiscoverItemHolder(BOOKS, 10)
         )
     }
 

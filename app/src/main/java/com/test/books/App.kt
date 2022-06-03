@@ -1,7 +1,6 @@
 package com.test.books
 
 import android.app.Application
-import com.google.firebase.FirebaseApp
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -11,7 +10,7 @@ class App : Application() {
         super.onCreate()
         debug = resources.getBoolean(R.bool.debug_mode)
 
-        FirebaseApp.initializeApp(this)
+//        FirebaseApp.initializeApp(this)
     }
 
     companion object {

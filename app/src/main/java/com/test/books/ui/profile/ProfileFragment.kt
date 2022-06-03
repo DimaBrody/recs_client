@@ -31,11 +31,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
 
-    private lateinit var binding: FragmentProfileBinding
-
-
     override fun bindData(binding: FragmentProfileBinding) {
-        this.binding = binding
         val profileData = provideProfileListData()
 
         binding.user = MockUtil.createUser()

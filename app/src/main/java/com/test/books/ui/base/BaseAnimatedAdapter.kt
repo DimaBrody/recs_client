@@ -6,12 +6,12 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.test.books.utils.segregation.setOnScrollStateChangedListener
 
-abstract class BaseAnimatedAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
+abstract class BaseAnimatedAdapter<T, VH : BaseViewHolder<T>> : BaseRecyclerViewAdapter<T, VH>() {
 
     private var lastItem: Int = -1
     private var onAttached = true
 
-    protected fun animateItem(view: View, position: Int) {
+     fun animateItem(view: View, position: Int) {
         if (position > lastItem) {
             fadeInItem(view, if (onAttached) position else -1)
             lastItem = position

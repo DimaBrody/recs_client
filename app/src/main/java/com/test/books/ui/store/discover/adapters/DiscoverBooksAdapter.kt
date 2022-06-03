@@ -3,50 +3,49 @@ package com.test.books.ui.store.discover.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.test.books.R
-import com.test.books.data.model.book.Book
+import com.test.books.data.model.book.BookServer
 import com.test.books.databinding.ItemDiscoverBookBinding
-import com.test.books.ui.details.DetailsActivity
+import com.test.books.ui.base.BaseRecyclerViewAdapter
+import com.test.books.ui.base.BaseViewHolder
 import com.test.books.utils.views.TransactionPair
-import com.test.books.utils.views.toTransitionName
 
 class DiscoverBooksAdapter(
-    private var books: List<Book> = mutableListOf(),
-    private val onItemClickListener: ((Book, Array<TransactionPair>) -> Unit)? = null
-) : RecyclerView.Adapter<DiscoverBooksAdapter.BooksViewHolder>() {
+    books: List<BookServer> = mutableListOf(),
+    private val picasso: Picasso,
+    private val onItemClickListener: ((BookServer, Array<TransactionPair>) -> Unit)? = null
+) : BaseRecyclerViewAdapter<BookServer, DiscoverBooksAdapter.BooksViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder =
-        BooksViewHolder(
-            DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.item_discover_book, parent, false
-            ), onItemClickListener
-        )
-
-    override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
-        holder.bind(books[position])
-    }
-
-    override fun getItemCount(): Int = books.size
-
-    fun update(books: MutableList<Book>){
-        this.books = books
-        notifyDataSetChanged()
+    init {
+        updateList(books)
     }
 
     class BooksViewHolder(
         private val binding: ItemDiscoverBookBinding,
-        private val onItemClickListener: ((Book, Array<TransactionPair>) -> Unit)?
-    ) : RecyclerView.ViewHolder(binding.root) {
+        private val picasso: Picasso,
+        private val onItemClickListener: ((BookServer, Array<TransactionPair>) -> Unit)?
+    ) : BaseViewHolder<BookServer>(binding.root) {
 
-        fun bind(book: Book) {
-            binding.book = book
+        override fun bind(item: BookServer, position: Int) {
+            binding.book = item
+            binding.picasso = picasso
             binding.root.setOnClickListener {
-                DetailsActivity.startActivity(binding.itemBookTransformation, book)
-                onItemClickListener?.invoke(book, arrayOf(binding.itemBookCover.toTransitionName()))
+//                DetailsActivity.startActivity(binding.itemBookTransformation, item)
+//                onItemClickListener?.invoke(item, arrayOf(binding.itemBookCover.toTransitionName()))
             }
         }
     }
+
+    override fun getViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder = BooksViewHolder(
+        DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_discover_book, parent, false
+        ), picasso, onItemClickListener
+    )
+
+    override fun areItemsTheSame(oldItem: BookServer, newItem: BookServer): Boolean = false
+
+    override fun areContentTheSame(oldItem: BookServer, newItem: BookServer): Boolean = false
 
 }

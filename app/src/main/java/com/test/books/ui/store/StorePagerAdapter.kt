@@ -11,7 +11,7 @@ class StorePagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAd
 ) {
 
     private val fragmentsList = mutableListOf<Pair<String, Fragment>>(
-        "Главная" to DiscoverFragment()
+        "Main" to DiscoverFragment()
     )
 
     override fun getCount(): Int = fragmentsList.size

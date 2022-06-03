@@ -92,7 +92,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.test.books.ui.views.books.DetailsBook
+                        <com.test.books.ui.views.books.DetailsBookImageView
                             android:id="@+id/details_motion_book_image"
                             android:layout_width="132dp"
                             android:layout_height="188dp"

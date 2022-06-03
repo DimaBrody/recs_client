@@ -1,111 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="book"
-            type="com.test.books.data.model.book.Book" />
+            type="com.test.books.data.model.book.BookServer" />
+
+        <variable
+            name="picasso"
+            type="com.squareup.picasso.Picasso" />
     </data>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:paddingStart="2dp"
-            android:paddingEnd="2dp"
-            android:layout_width="150dp"
-            android:id="@+id/item_book_container"
-            android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_book_container"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp">
 
 
-            <com.skydoves.transformationlayout.TransformationLayout
+        <com.skydoves.transformationlayout.TransformationLayout
+            android:id="@+id/item_book_transformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:transformation_duration="500">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/item_book_card"
                 android:layout_width="match_parent"
-                android:id="@+id/item_book_transformation"
-                app:transformation_duration="500"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_height="wrap_content">
+                android:layout_height="211dp"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="1dp"
+                app:cardUseCompatPadding="true">
 
-                <com.google.android.material.card.MaterialCardView
+                <ImageView
+                    android:id="@+id/item_book_cover"
                     android:layout_width="match_parent"
-                    app:cardElevation="1dp"
-                    app:cardCornerRadius="3dp"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@null"
+                    android:transitionName="@{book.isbn}"
+                    app:imageUrl="@{book.imageLarge}"
+                    app:picasso="@{picasso}"
+                    tools:src="@drawable/adventure_books_large" />
+            </com.google.android.material.card.MaterialCardView>
 
-                    app:cardUseCompatPadding="true"
-                    android:id="@+id/item_book_card"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:id="@+id/item_book_cover"
-                        android:transitionName="@{book.id}"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@null"
-                        android:src="@drawable/adventure_books_large"
-                        android:layout_height="wrap_content"/>
-                </com.google.android.material.card.MaterialCardView>
+        </com.skydoves.transformationlayout.TransformationLayout>
 
-            </com.skydoves.transformationlayout.TransformationLayout>
+        <TextView
+            android:id="@+id/item_book_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="2"
+            android:ellipsize="marquee"
+            android:text="@{book.title}"
+            android:textColor="#333"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/item_book_transformation"
+            app:layout_constraintTop_toBottomOf="@id/item_book_transformation"
+            tools:text="Война и Мир" />
 
-            <TextView
-                app:layout_constraintTop_toBottomOf="@id/item_book_transformation"
-                app:layout_constraintStart_toStartOf="@id/item_book_transformation"
-                android:layout_marginStart="4dp"
-                android:text="@{book.name}"
-                android:id="@+id/item_book_name"
-                tools:text="Война и Мир"
-                android:layout_width="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:textSize="15sp"
-                android:textColor="#333"
-                android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/item_book_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@{book.author}"
+            android:textColor="@color/text_default"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/item_book_name"
+            app:layout_constraintTop_toBottomOf="@id/item_book_name"
+            tools:text="Lev Tolstoy" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/item_book_name"
-                app:layout_constraintTop_toBottomOf="@id/item_book_name"
-                android:text="@{book.author}"
-                tools:text="Лев Толстой"
-                android:fontFamily="sans-serif-light"
-                android:id="@+id/item_book_author"
-                android:textStyle="italic"
-                android:textSize="12sp"
-                android:textColor="@color/text_default"
-                android:layout_height="wrap_content"/>
+        <!--        <TextView-->
+        <!--            android:id="@+id/item_book_rating"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fontFamily="sans-serif-light"-->
+        <!--            android:text="@{book.rating.toString()}"-->
+        <!--            android:textColor="#333"-->
+        <!--            android:textSize="14sp"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/item_book_author"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/item_book_author"-->
+        <!--            tools:text="8.2" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/item_book_author"
-                app:layout_constraintStart_toStartOf="@id/item_book_author"
-                android:text="@{book.rating.toString()}"
-                android:textSize="14sp"
-                android:textColor="#333"
-                android:fontFamily="sans-serif-light"
-                tools:text="4.9"
-                android:id="@+id/item_book_rating"
-                android:layout_height="wrap_content"/>
+        <!--        <ImageView-->
+        <!--            android:id="@+id/item_book_star"-->
+        <!--            android:layout_width="13dp"-->
+        <!--            android:layout_height="13dp"-->
+        <!--            android:layout_marginStart="2dp"-->
 
-            <ImageView
-                android:layout_width="13dp"
-                app:layout_constraintStart_toEndOf="@id/item_book_rating"
-                app:layout_constraintTop_toTopOf="@id/item_book_rating"
-                app:layout_constraintBottom_toBottomOf="@id/item_book_rating"
+        <!--            android:contentDescription="@null"-->
+        <!--            android:src="@drawable/ic_star"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/item_book_rating"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/item_book_rating"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/item_book_rating"-->
+        <!--            app:tint="#606368" />-->
 
-                app:tint="#606368"
-                android:contentDescription="@null"
-                android:id="@+id/item_book_star"
-                android:layout_marginStart="2dp"
-                android:src="@drawable/ic_star"
-                android:layout_height="13dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/item_book_star"
-                app:layout_constraintTop_toTopOf="@id/item_book_rating"
-                app:layout_constraintBottom_toBottomOf="@id/item_book_rating"
-                android:text="@{@string/string_price(book.price)}"
-                tools:text="75₴"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/text_default"
-                android:layout_marginStart="8dp"
-                android:layout_height="wrap_content"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:fontFamily="sans-serif-light"-->
+        <!--            android:text="@{@string/string_price(book.price)}"-->
+        <!--            android:textColor="@color/text_default"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/item_book_rating"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/item_book_star"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/item_book_rating"-->
+        <!--            tools:text="75₴" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

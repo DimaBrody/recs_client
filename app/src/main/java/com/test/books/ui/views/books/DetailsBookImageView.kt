@@ -4,11 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.view.marginTop
 import com.test.books.utils.functions.dp
-import com.test.books.utils.functions.px
 
-class DetailsBook @JvmOverloads constructor(
+class DetailsBookImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
@@ -25,6 +23,21 @@ class DetailsBook @JvmOverloads constructor(
 //
 //        super.onMeasure(widthNewSpec, heightNewSpec)
 //    }
+
+
+
+//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+//        val newHeight = (MeasureSpec.getSize(heightMeasureSpec)) / BOOK_RATIO
+//
+//        val widthNewSpec =
+//            MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY)
+//        val heightNewSpec = MeasureSpec.makeMeasureSpec(newHeight.toInt(), MeasureSpec.EXACTLY)
+//
+//        Log.d("DetailsBook", "${newHeight.toInt().dp}")
+//
+//        super.onMeasure(widthMeasureSpec, if(newHeight.toInt() == 0) heightMeasureSpec else heightNewSpec)
+//    }
+
 
     companion object {
         private const val BOOK_RATIO = 0.7f

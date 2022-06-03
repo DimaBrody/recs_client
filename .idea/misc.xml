@@ -6,11 +6,21 @@
         <entry key="app/src/main/res/drawable/ic_library.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.40925925925925927" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3926540523643419" />
+        <entry key="app/src/main/res/layout/activity_more.xml" value="0.23125" />
+        <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/fragment_store.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/item_discover_book.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/item_discover_container_book.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/item_discover_container_stripe.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/item_discover_stripe.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/item_profile.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/item_small_discover_book.xml" value="0.4234375" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.40925925925925927" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

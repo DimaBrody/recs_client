@@ -8,9 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.test.books.databinding.FragmentStoreBinding
 import com.test.books.ui.main.MainActivity
-import com.test.books.utils.ui.setDefaultStatusBar
 
 abstract class BaseFragment<V : ViewDataBinding>(
     @LayoutRes private val layoutId: Int
@@ -18,6 +16,8 @@ abstract class BaseFragment<V : ViewDataBinding>(
 
     protected val mainActivity: MainActivity?
         get() = activity as? MainActivity
+
+    protected lateinit var binding: V
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +31,7 @@ abstract class BaseFragment<V : ViewDataBinding>(
             false
         )
 
+        this.binding = binding
         bindData(binding)
 
         return binding.root

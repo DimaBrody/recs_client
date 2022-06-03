@@ -1,7 +1,7 @@
 package com.test.books.di.modules
 
-import com.test.books.utils.helpers.BlurryHelper
-import com.test.books.ui.store.discover.adapters.DiscoverMainAdapter
+import com.squareup.picasso.Picasso
+import com.test.books.ui.store.discover.adapters.DiscoverServerAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ object AdaptersModule {
 
     @FragmentScoped
     @Provides
-    fun provideMainProvider(blurryHelper: BlurryHelper) : DiscoverMainAdapter {
-        return DiscoverMainAdapter(blurryHelper)
+    fun provideMainProvider(picasso: Picasso): DiscoverServerAdapter {
+        return DiscoverServerAdapter(picasso)
     }
 }

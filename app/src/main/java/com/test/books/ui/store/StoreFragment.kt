@@ -10,11 +10,7 @@ import com.test.books.utils.ui.setStatusBarGradient
 
 class StoreFragment : BaseFragment<FragmentStoreBinding>(R.layout.fragment_store) {
 
-    private lateinit var binding: FragmentStoreBinding
-
     override fun bindData(binding: FragmentStoreBinding) {
-        this.binding = binding
-
         binding.storeViewPager.adapter = StorePagerAdapter.create(childFragmentManager)
         binding.storeTabLayout.setupWithViewPager(binding.storeViewPager)
     }

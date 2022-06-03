@@ -19,11 +19,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     private val binding: ActivityMainBinding by binding(R.layout.activity_main)
-    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        onTransformationStartContainer()
+//        onTransformationStartContainer()
         super.onCreate(savedInstanceState)
         setStatusBarGradient(this)
 
